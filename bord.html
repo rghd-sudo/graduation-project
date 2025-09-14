@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard</title>
+  <link rel="stylesheet" href="StyleAther.css">
+</head>
+<body class="dashboard-page">
+
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <img src="logo.png" alt="Logo" class="logo">
+    <a href="#">Profile</a>
+    <a href="#">New Request</a>
+    <a href="#">Track Request</a>
+    <a href="#">Notifications</a>
+  </aside>
+
+  <!-- Main -->
+  <main class="main-content">
+    <button class="btn-secondary">+ New Recommendation Request</button>
+
+    <h3>My Request</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Professor</th>
+          <th>Date</th>
+          <th>Status</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>001</td>
+          <td>Dr.Arwa</td>
+          <td>05/1/2025</td>
+          <td class="pending">Pending</td>
+          <td>
+            <button class="btn-delete">🗑</button>
+            <button class="btn-edit">✏</button>
+          </td>
+        </tr>
+        <tr>
+          <td>002</td>
+          <td>Dr.Hneen</td>
+          <td>09/4/2025</td>
+          <td class="accepted">Accepted</td>
+          <td>
+            <button class="btn-delete">🗑</button>
+            <button class="btn-edit">✏</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>Notifications</h3>
+    <div class="notification">Accepted</div>
+
+    <button class="btn-secondary">Track Request</button>
+  </main>
+
+</body>
+</html>

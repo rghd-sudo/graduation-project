@@ -1,11 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="ltr">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Dashboard Sidebar</title>
+<title>Professor Dashboard</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
 <style>
-  body {
+ body {
     margin: 0;
     font-family: "Poppins", sans-serif;
     background: #f9f9f9;
@@ -73,12 +74,12 @@ h2 {
     display: none;
   }
 
-  /* Bottom menu (notification settings) */
+  /* Bottom Section */
   .bottom-section {
     margin-bottom: 20px;
   }
 
-  /* Toggle button */
+  /* Collapse Button */
   .toggle-btn {
     position: absolute;
     top: 20px;
@@ -92,30 +93,14 @@ h2 {
     cursor: pointer;
   }
 
-  /* Top bar */
-  .top-bar {
-    position: fixed;
-    top: 0;
-    right: 0;
-    left: 230px;
-    height: 60px;
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    padding: 0 20px;
-    transition: left 0.3s;
-    z-index: 10;
-  }
-
-  .sidebar.collapsed ~ .top-bar {
-    left: 70px;
-  }
-
+  /* Top Icons */
   .top-icons {
+    position: absolute;
+    top: 20px;
+    right: 30px;
     display: flex;
     align-items: center;
     gap: 20px;
-    position: relative;
   }
 
   .icon-btn {
@@ -124,85 +109,78 @@ h2 {
     cursor: pointer;
     font-size: 20px;
     color: #333;
-    position: relative;
   }
 
   .icon-btn:hover {
     color: #003366;
   }
 
-  /* Content */
+  /* Main Content */
   .main-content {
     margin-left: 230px;
-    margin-top: 70px;
     padding: 30px;
     transition: margin-left 0.3s;
     width: 100%;
+    position: relative;
   }
 
-  .sidebar.collapsed + .top-bar + .main-content {
+  .sidebar.collapsed + .main-content {
     margin-left: 70px;
   }
 
+  /* Username */
+  .username {
+    font-size: 18px;
+    color: #003366;
+    font-weight: 600;
+    margin-top: 70px;
+    margin-bottom: 10px;
+  }
 </style>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
 </head>
 <body>
 
   <!-- Sidebar -->
   <div class="sidebar" id="sidebar">
     <button class="toggle-btn" id="toggleBtn"><i class="fas fa-bars"></i></button>
+
     <div>
       <div class="logo">
         <img src="IMG_1786.PNG" alt="Logo">
       </div>
 
-      <!-- قائمة الخريج كمثال -->
+      <a href="#" class="menu-item"><i class="fas fa-inbox"></i><span class="menu-text">New Requests</span></a>
+      <a href="#" class="menu-item"><i class="fas fa-list"></i><span class="menu-text">All Requests</span></a>
+      <a href="#" class="menu-item"><i class="fas fa-pen-nib"></i><span class="menu-text">Write Recommendation</span></a>
       <a href="#" class="menu-item"><i class="fas fa-user"></i><span class="menu-text">Profile</span></a>
-      <a href="#" class="menu-item"><i class="fas fa-plus-square"></i><span class="menu-text">New Request</span></a>
-      <a href="#" class="menu-item"><i class="fas fa-clock"></i><span class="menu-text">Track Request</span></a>
-      <a href="#" class="menu-item"><i class="fas fa-bell"></i><span class="menu-text">Notifications</span></a>
+
     </div>
-<!-- إعدادات التنبيهات في الأسفل -->
+
     <div class="bottom-section">
       <a href="#" class="menu-item"><i class="fas fa-gear"></i><span class="menu-text">Notification Settings</span></a>
     </div>
   </div>
 
-  <!-- Top Bar -->
-  <div class="top-bar">
-    <div class="top-icons">
-      <!-- زر الجرس -->
-      <button class="icon-btn" id="bellBtn"><i class="fas fa-bell"></i></button>
-
-      <!-- زر تسجيل الخروج (سهم خارج من مربع) -->
-      <button class="icon-btn logout-btn" title="Logout"><i class="fas fa-arrow-right-from-bracket"></i></button>
-    </div>
-  </div>
-
   <!-- Main Content -->
   <div class="main-content">
-    <h2>Welcome, Nora Mohammed</h2>
-    <p>This is your profile section.</p>
+    <!-- Top Icons -->
+    <div class="top-icons">
+      <button class="icon-btn"><i class="fas fa-bell"></i></button>
+      <button class="icon-btn" title="Logout"><i class="fas fa-arrow-right-from-bracket"></i></button>
+    </div>
+
+    <!-- Username -->
+    <h2 class="username">Dr. John Smith</h2>
+
+    <p>Welcome to your dashboard. You can view and manage student recommendation requests.</p>
   </div>
 
 <script>
   const toggleBtn = document.getElementById("toggleBtn");
   const sidebar = document.getElementById("sidebar");
-  const bellBtn = document.getElementById("bellBtn");
-  const notifications = document.getElementById("notifications");
 
-  // طي القائمة الجانبية
   toggleBtn.addEventListener("click", () => {
     sidebar.classList.toggle("collapsed");
-  });
-
-
-  // إغلاق القائمة عند الضغط خارجها
-  document.addEventListener("click", (e) => {
-    if (!notifications.contains(e.target) && e.target !== bellBtn) {
-      notifications.classList.remove("active");
-    }
   });
 </script>
 

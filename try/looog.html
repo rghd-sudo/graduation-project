@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>نموذج التسجيل</title>
+</head>
+<body>
+
+
+
+<form method="POST" action="looog.php">
+    <label>الاسم:</label>
+    <input type="text" name="name" required><br>
+
+    <label>الإيميل:</label>
+    <input type="email" name="email" required><br>
+
+    <label>كلمة المرور:</label>
+    <input type="password" name="password" required><br>
+
+    <label>الدور:</label>
+    <select name="role" required onchange="toggleFields(this.value)">
+        <option value="">اختر</option>
+        <option value="doctor">دكتور</option>
+        <option value="graduate">خريج</option>
+    </select><br>
+
+    <div id="doctorFields" style="display:none;">
+        <label>الجامعة:</label>
+        <input type="text" name="university"><br>
+
+        <label>التخصص:</label>
+        <input type="text" name="specialization"><br>
+    </div>
+
+    <div id="graduateFields" style="display:none;">
+        <label>سنة التخرج:</label>
+        <input type="text" name="graduation_year"><br>
+
+        <label>التخصص:</label>
+        <input type="text" name="major"><br>
+    </div>
+
+    <button type="submit">تسجيل</button>
+</form>
+
+<script>
+function toggleFields(role) {
+    document.getElementById('doctorFields').style.display = (role === 'doctor') ? 'block' : 'none';
+    document.getElementById('graduateFields').style.display = (role === 'graduate') ? 'block' : 'none';
+}
+</script>
+
+
+
+</body>
+
+
+
+</html>
